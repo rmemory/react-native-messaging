@@ -1,23 +1,65 @@
+import { StyleSheet, View, Text }  from 'react-native';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+	renderMessageList() {
+		return (
+			<View style={styles.messages}>
+				<Text>Messages</Text>
+			</View>
+		);
+	}
 
+	renderToolbar() {
+		return (
+			<View style={styles.toolbar}>
+				<Text>Toolbar</Text>
+			</View>
+		);
+	}
+
+	renderInputMethodEditor() {
+		return (
+			<View style={styles.inputMethodEditor}>
+				<Text>Input method</Text>
+			</View>
+		);
+	}
+
+	render() {
+		return (
+			<View style={styles.container}>
+				{this.renderMessageList()}
+				{this.renderToolbar()}
+				{this.renderInputMethodEditor()}
+			</View>
+		);
+	}
+}
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	// Top level styles
+	container: {
+		flex: 1,
+		backgroundColor: 'white',
+	},
+
+	// Styles for messages
+	messages: {
+		flex: 1,
+		backgroundColor: 'white',
+	},
+
+	// Styles for toolbar
+	toolbar: {
+		// Because this doesn't have flex: 1, it will have minimal size
+		borderTopWidth: 1,
+		borderTopColor: 'rgba(0,0,0,0.04)',
+		backgroundColor: 'red',
+	},
+
+	// Styles for input editor
+	inputMethodEditor: {
+		flex: 1,
+		backgroundColor: 'white',
+	},
 });
